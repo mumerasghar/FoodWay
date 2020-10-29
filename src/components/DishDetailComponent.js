@@ -1,28 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
 
-class DishDetail extends Component {
+function DishDetail(props) {
+    console.log("remder mehtod of dish detail component")
+    if (props.item == null) {
+        return (
+            <div>empty</div>
 
-    render() {
-
-        let item;
-        if (this.props.item == null) {
-            return (
-                <div>empty</div>
-
-            )
-        } else {
-            return (
-                <Card>
-                    <CardImg width="100%" src={this.props.item.image} alt={this.props.item.name}></CardImg>
-                    <CardBody>
-                        <CardTitle>{this.props.item.name}</CardTitle>
-                        <CardText>{this.props.item.description}</CardText>
-                    </CardBody>
-                </Card>
-            )
-        }
+        )
+    } else {
+        return (
+            <Card>
+                <CardImg width="100%" src={props.item.image} alt={props.item.name}></CardImg>
+                <CardBody>
+                    <CardTitle>{props.item.name}</CardTitle>
+                    <CardText>{props.item.description}</CardText>
+                </CardBody>
+            </Card>
+        )
     }
 }
-
 export default DishDetail
