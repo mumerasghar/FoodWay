@@ -10,7 +10,7 @@ import Contact from './ContactComponent'
 import { COMMENTS } from '../shared/comments'
 import { LEADERS } from '../shared/leaders'
 import { PROMOTIONS } from '../shared/promotions'
-
+import About from './AboutComponent'
 class Main extends Component {
 
     constructor(props) {
@@ -41,6 +41,12 @@ class Main extends Component {
             )
         }
 
+        const AboutPage = () => {
+            return (
+                <About leaders={this.state.leaders} />
+            )
+        }
+
         return (
 
             <div className="App" >
@@ -51,11 +57,10 @@ class Main extends Component {
                     <Route exact path="/menu/" component={() => <Menu dishes={this.state.dishes} />} />
                     <Route path="/menu/:dishId" component={DishWithId} />
                     <Route exact path="/contactus" component={Contact} />
+                    <Route exact path="/aboutus" component={AboutPage}></Route>
                     <Redirect to="/home" />
                 </Switch>
-                {/* <Menu dishes={this.state.dishes}
-                    onClick={(itemId) => this.handleClick(itemId)} /> */}
-                {/* <DishDetail item={this.state.dishes.filter((item) => item.id === this.state.selectedDish)[0]} /> */}
+                
                 <Footer />
             </div >
         );
